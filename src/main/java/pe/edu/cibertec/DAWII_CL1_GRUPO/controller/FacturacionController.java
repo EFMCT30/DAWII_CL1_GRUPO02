@@ -1,4 +1,4 @@
-package pe.edu.cibertec.DAWII_CL1_GRUPO.controller.backoffice;
+package pe.edu.cibertec.DAWII_CL1_GRUPO.controller;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
