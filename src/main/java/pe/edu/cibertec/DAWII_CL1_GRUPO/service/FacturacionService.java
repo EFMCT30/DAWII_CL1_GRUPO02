@@ -28,6 +28,7 @@ public class FacturacionService {
                 objFacturacion.setFacturacionId(facturacion.getFacturacionId());
             }
             objFacturacion.setFechaFacturacion(facturacion.getFechaFacturacion());
+            objFacturacion.setCliente(facturacion.getCliente());
             objFacturacion.setMontoTotal(facturacion.getMontoTotal());
         }catch (Exception ex){
             mensaje = "Facturacion no registrada";
