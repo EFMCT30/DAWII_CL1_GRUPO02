@@ -6,11 +6,10 @@ import java.util.Date;
 
 @Data
 public class ClienteRequest {
-    private Long clienteId;
+    private Long cliente_id;
     private String nombre;
     private String email;
     private String telefono;
     private String direccion;
-    private Long reservaId;
-    private Long id;
+    private Integer IdPais;
 }

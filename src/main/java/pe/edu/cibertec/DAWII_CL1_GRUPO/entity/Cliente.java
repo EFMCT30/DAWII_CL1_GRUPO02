@@ -11,12 +11,12 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Cliente")
+@Table(name = "cliente")
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cliente_id")
-    private Long clienteId;
+    private Long cliente_id;
     @Column(name = "nombre")
     private String nombre;
     @Column(name = "email")
@@ -32,10 +32,10 @@ public class Cliente {
     @Column(name = "preferencias")
     private String preferencias;
 
-    @OneToMany(mappedBy = "cliente")
-    private List<Reserva> reservas;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "id", unique = true, nullable = false)
-    private UserEntity user; // Referencia al usuario
+    @ManyToOne
+    @JoinColumn(name = "IdPais")
+    private Pais pais;
+
+
 }
