@@ -1,4 +1,4 @@
-package pe.edu.cibertec.DAWII_CL1_GRUPO.controller;
+package pe.edu.cibertec.DAWII_CL1_GRUPO.controller.backoffice;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -22,7 +22,7 @@ public class FacturacionController {
     public String index(Model model){
         model.addAttribute("listaProductos",
                 facturacionService.listarFacturacion());
-        return "facturacion/frmMantFacturacion";
+        return "backoffice/facturacion/frmMantFacturacion";
     }
     @GetMapping("/listar")
     @ResponseBody
