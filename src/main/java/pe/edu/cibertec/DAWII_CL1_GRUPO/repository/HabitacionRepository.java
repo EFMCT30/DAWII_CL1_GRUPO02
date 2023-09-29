@@ -1,4 +1,9 @@
 package pe.edu.cibertec.DAWII_CL1_GRUPO.repository;
 
-public interface HabitacionRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import pe.edu.cibertec.DAWII_CL1_GRUPO.model.bd.Habitacion;
+
+@Repository
+public interface HabitacionRepository extends JpaRepository<Habitacion, Integer> {
 }
