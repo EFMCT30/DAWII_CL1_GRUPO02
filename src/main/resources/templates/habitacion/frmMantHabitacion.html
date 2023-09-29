@@ -5,8 +5,8 @@
     <title>Title</title>
 </head>
 <body>
-<!-- <script th:src="@{/scripts/web/backoffice/product/frmMantProduct.js}"
-        type="text/javascript"></script> -->
+<script th:src="@{/scripts/web/habitacion/frmMantHabitacion.js}"
+        type="text/javascript"></script>
 <nav th:replace="~{layout::menu}"></nav>
 <div class="card ">
     <div class="card-header text-bg-dark mb-3">
@@ -57,36 +57,44 @@
         </table>
     </div>
 </div>
-<!-- Modal Registrar / Actualizar Producto
+<!-- Modal Registrar / Actualizar Habitacion -->
 <div class="modal fade" id="modalNuevo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Producto</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Habitación</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="mb-3">
-                    <label for="txtnomproducto" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="txtnomproducto">
+                    <label for="txtnumeroHabitacion" class="form-label">Num. Habitación</label>
+                    <input type="text" class="form-control" id="txtnumeroHabitacion">
                 </div>
                 <div class="mb-3">
-                    <label for="txtpreciounit" class="form-label">Precio Unitario</label>
-                    <input type="number" class="form-control" id="txtpreciounit">
+                    <label for="txttipo" class="form-label">Tipo</label>
+                    <input type="number" class="form-control" id="txttipo">
                 </div>
                 <div class="mb-3">
-                    <label for="cbocategoria" class="form-label">Categoria</label>
-                    <select id="cbocategoria" class="form-control"></select>
+                    <label for="txtcapacidad" class="form-label">Capacidad</label>
+                    <input type="number" class="form-control" id="txtcapacidad">
                 </div>
                 <div class="mb-3">
-                    <label for="cboproveedor" class="form-label">Proveedor</label>
-                    <select id="cboproveedor" class="form-control"></select>
+                    <label for="txtprecioNoche" class="form-label">Precio</label>
+                    <input type="number" class="form-control" id="txtprecioNoche">
                 </div>
-                <div class="form-check form-switch" id="switchproducto">
-                    <input class="form-check-input" type="checkbox" role="switch" id="chkdescontinuado">
-                    <label class="form-check-label" for="chkdescontinuado">Descontinuado</label>
+                <div class="mb-3">
+                    <label for="txtdisponible" class="form-label">Disponibilidad</label>
+                    <input type="text" class="form-control" id="txtdisponible">
                 </div>
-                <input type="hidden" id="hddcodprod" value="0">
+                <div class="mb-3">
+                    <label for="txtfecha_ultima_mantenimiento" class="form-label">Fec. Ult. Mant.</label>
+                    <input type="text" class="form-control" id="txtfecha_ultima_mantenimiento">
+                </div>
+                <div class="mb-3">
+                    <label for="cbonombre" class="form-label">Hotel</label>
+                    <select id="cbonombre" class="form-control"></select>
+                </div>
+                <input type="hidden" id="hddcodhab" value="0">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-times"></i> Cancelar</button>
@@ -94,6 +102,6 @@
             </div>
         </div>
     </div>
-</div> -->
+</div>
 </body>
 </html>
