@@ -26,6 +26,15 @@ public class ReservaService {
         Boolean respuesta = true;
 
         try {
+            Reserva objReserva = new Reserva();
+            if(reserva.getReservaId()>0){
+                objReserva.setReservaId(reserva.getReservaId());
+            }
+            objReserva.setFechaInicio(reserva.getFechaInicio());
+            objReserva.setFechaFin(reserva.getFechaFin());
+            objReserva.setEstado(reserva.getEstado());
+
+
 
 
         }catch (Exception ex){

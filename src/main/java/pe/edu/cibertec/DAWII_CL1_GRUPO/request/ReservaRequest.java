@@ -1,6 +1,7 @@
 package pe.edu.cibertec.DAWII_CL1_GRUPO.request;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import pe.edu.cibertec.DAWII_CL1_GRUPO.entity.Cliente;
 import pe.edu.cibertec.DAWII_CL1_GRUPO.entity.ReservaHabitacion;
 
@@ -9,6 +10,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
+@Data
 public class ReservaRequest {
 
 

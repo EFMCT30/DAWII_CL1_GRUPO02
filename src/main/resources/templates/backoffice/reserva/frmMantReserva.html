@@ -29,7 +29,7 @@
                 <th scope="col">Comentarios</th>
                 <th scope="col">Nombre Cliente</th>
                 <th scope="col">Reserva Habitacion</th>
-
+                <th scope="col">Actualizar</th>
             </tr>
             </thead>
             <tbody>
@@ -52,8 +52,8 @@
                             th:data-precioTotal="${reserva.precioTotal}"
                             th:data-fechaCreacion="${reserva.fechaCreacion}"
                             th:data-comentarios="${reserva.comentarios}"
-                            th:data-cliente.nombre="${reserva.cliente.nombre}"
-                            th:data-reservaHabitaciones="${reserva.reservaHabitaciones}"
+                            th:data-clientenombre="${reserva.cliente.clienteId}"
+
                     >
                         <i class="fas fa-edit"></i></button>
                 </td>
@@ -62,43 +62,52 @@
         </table>
     </div>
 </div>
-<!--&lt;!&ndash; Modal Registrar / Actualizar Producto &ndash;&gt;-->
-<!--<div class="modal fade" id="modalNuevo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
-<!--    <div class="modal-dialog">-->
-<!--        <div class="modal-content">-->
-<!--            <div class="modal-header">-->
-<!--                <h1 class="modal-title fs-5" id="exampleModalLabel">Producto</h1>-->
-<!--                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-<!--            </div>-->
-<!--            <div class="modal-body">-->
-<!--                <div class="mb-3">-->
-<!--                    <label for="txtnomproducto" class="form-label">Nombre</label>-->
-<!--                    <input type="text" class="form-control" id="txtnomproducto">-->
-<!--                </div>-->
-<!--                <div class="mb-3">-->
-<!--                    <label for="txtpreciounit" class="form-label">Precio Unitario</label>-->
-<!--                    <input type="number" class="form-control" id="txtpreciounit">-->
-<!--                </div>-->
-<!--                <div class="mb-3">-->
-<!--                    <label for="cbocategoria" class="form-label">Categoria</label>-->
-<!--                    <select id="cbocategoria" class="form-control"></select>-->
-<!--                </div>-->
-<!--                <div class="mb-3">-->
-<!--                    <label for="cboproveedor" class="form-label">Proveedor</label>-->
-<!--                    <select id="cboproveedor" class="form-control"></select>-->
-<!--                </div>-->
-<!--                <div class="form-check form-switch" id="switchproducto">-->
-<!--                    <input class="form-check-input" type="checkbox" role="switch" id="chkdescontinuado">-->
-<!--                    <label class="form-check-label" for="chkdescontinuado">Descontinuado</label>-->
-<!--                </div>-->
-<!--                <input type="hidden" id="hddcodprod" value="0">-->
-<!--            </div>-->
-<!--            <div class="modal-footer">-->
-<!--                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-times"></i> Cancelar</button>-->
-<!--                <button type="button" id="btnguardar" class="btn btn-primary"><i class="fas fa-save"></i> Guardar</button>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
+<!-- Modal Registrar / Actualizar Producto -->
+<div class="modal fade" id="modalNuevo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Reserva</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="txtfechainicio" class="form-label">Fecha Inicio</label>
+                    <input type="text" class="form-control" id="txtfechainicio">
+                </div>
+                <div class="mb-3">
+                    <label for="txtfechafinal" class="form-label">Fecha Final</label>
+                    <input type="text" class="form-control" id="txtfechafinal">
+                </div>
+                <div class="mb-3">
+                    <label for="txtestado" class="form-label">Estado</label>
+                    <input type="text" class="form-control" id="txtestado">
+                </div>
+                <div class="mb-3">
+                    <label for="txtpreciototal" class="form-label">Precio Total</label>
+                    <input type="number" class="form-control" id="txtpreciototal">
+                </div>
+                <div class="mb-3">
+                    <label for="txtfechacreacion" class="form-label">Fecha Creacion</label>
+                    <input type="text" class="form-control" id="txtfechacreacion">
+                </div>
+                <div class="mb-3">
+                    <label for="txtcomentarios" class="form-label">Comentario</label>
+                    <input type="text" class="form-control" id="txtcomentarios">
+                </div>
+                <div class="mb-3">
+                    <label for="cbocliente" class="form-label">Clientes</label>
+                    <select id="cbocliente" class="form-control"></select>
+                </div>
+
+                <input type="hidden" id="hddcodreserva" value="0">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-times"></i> Cancelar</button>
+                <button type="button" id="btnguardar" class="btn btn-primary"><i class="fas fa-save"></i> Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

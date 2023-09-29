@@ -1,6 +1,7 @@
 package pe.edu.cibertec.DAWII_CL1_GRUPO.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,6 +31,7 @@ public class Cliente {
     private boolean activo;
     private String preferencias;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "cliente")
     private List<Reserva> reservas;
 
