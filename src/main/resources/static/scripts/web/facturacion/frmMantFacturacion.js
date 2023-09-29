@@ -5,15 +5,14 @@ $(document).on("click", "#btnagregar", function(){
     $("#modalNuevo").modal("show");
 });
 
-$(document).on("click", ".btnactualizar", function(){
+$(document).on("click", ".btnactualizar", function () {
     $("#txtIdfacturacion").val($(this).attr("data-facturacionId"));
     $("#txtFechafacturacion").val($(this).attr("data-fechaFacturacion"));
     $("#txtMontofacturacion").val($(this).attr("data-montoTotal"));
     $("#modalNuevo").modal("show");
 });
 
-
-$(document).on("click", "#btnguardar", function(){
+$(document).on("click", "#btnguardar", function () {
     $.ajax({
         type: "POST",
         url: "/facturacion/guardar",
@@ -23,9 +22,9 @@ $(document).on("click", "#btnguardar", function(){
             fechaFacturacion: $("#txtFechafacturacion").val(),
             montoTotal: $("#txtMontofacturacion").val(),
         }),
-        success: function(resultado){
-            if(resultado.respuesta){
-                listarFacturacion();
+        success: function (resultado) {
+            if (resultado.respuesta) {
+                listarProductos();
             }
             alert(resultado.mensaje);
         }
@@ -33,27 +32,26 @@ $(document).on("click", "#btnguardar", function(){
     $("#modalNuevo").modal("hide");
 });
 
-
-function listarProductos(){
+function listarProductos() {
     $.ajax({
         type: "GET",
         url: "/facturacion/listar",
         dataType: "json",
-        success: function(resultado){
-            $("#tblproducto > tbody").html("");
-            $.each(resultado, function(index, value){
-                $("#tblproducto > tbody").append("<tr>"+
-                    "<td>"+value.facturacionId+"</td>"+
-                    "<td>"+value.fechaFacturacion+"</td>"+
-                    "<td>"+value.montoTotal+"</td>"+
-                    "<td>"+
-                        "<button type='button' class='btn btn-info btnactualizar'"+
-                                     "data-facturacionId='"+value.facturacionId+"'"+
-                                     "data-fechaFacturacion='"+value.fechaFacturacion+"'"+
-                                     "data-montoTotal='"+value.montoTotal+"'"+
-                                     "><i class='fas fa-edit'></i></button>"+
+        success: function (resultado) {
+            $("#tblfacturacion > tbody").html("");
+            $.each(resultado, function (index, value) {
+                $("#tblfacturacion > tbody").append("<tr>" +
+                    "<td>" + value.facturacionId + "</td>" +
+                    "<td>" + value.fechaFacturacion + "</td>" +
+                    "<td>" + value.montoTotal + "</td>" +
+                    "<td>" +
+                    "<button type='button' class='btn btn-info btnactualizar'" +
+                    "data-facturacionId='" + value.facturacionId + "'" +
+                    "data-fechaFacturacion='" + value.fechaFacturacion + "'" +
+                    "data-montoTotal='" + value.montoTotal + "'>" +
+                    "<i class='fas fa-edit'></i></button>" +
                     "</td></tr>");
-            })
+            });
         }
-    })
+    });
 }
