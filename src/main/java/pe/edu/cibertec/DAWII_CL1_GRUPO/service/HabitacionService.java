@@ -25,8 +25,8 @@ public class HabitacionService {
         Boolean respuesta = true;
         try{
             Habitacion objHab = new Habitacion();
-            if(habitacion.getHabitacionId() > 0){
-                objHab.setHabitacionId(habitacion.getHabitacionId());
+            if(habitacion.getHabitacion_Id() > 0){
+                objHab.setHabitacion_Id(habitacion.getHabitacion_Id());
             }
             objHab.setNumeroHabitacion(habitacion.getNumeroHabitacion());
             objHab.setTipo(habitacion.getTipo());
@@ -45,6 +45,7 @@ public class HabitacionService {
         }catch (Exception ex){
             mensaje = "Habitacion no registrada";
             respuesta = false;
+            System.out.println(habitacion);
         }
         return ResultadoResponse.builder().mensaje(mensaje).respuesta(respuesta).build();
     }

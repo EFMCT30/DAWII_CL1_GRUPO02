@@ -10,7 +10,7 @@ import java.sql.Date;
 @Data
 public class HabitacionRequest {
 
-    private Long habitacionId;
+    private Long habitacion_Id;
     private Integer numeroHabitacion;
     private String tipo;
     private Integer capacidad;

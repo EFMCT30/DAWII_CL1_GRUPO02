@@ -33,7 +33,7 @@
             </thead>
             <tbody>
             <tr th:each="hab :${listaHabitaciones}">
-                <td th:text="${hab.habitacionId}"></td>
+                <td th:text="${hab.habitacion_Id}"></td>
                 <td th:text="${hab.numeroHabitacion}"></td>
                 <td th:text="${hab.tipo}"></td>
                 <td th:text="${hab.capacidad}"></td>
@@ -43,7 +43,7 @@
                 <td th:text="${hab.hotel.nombre}"></td>
                 <td>
                     <button type="button" class="btn btn-info btnactualizar"
-                            th:data-habitacionId="${hab.habitacionId}"
+                            th:data-habitacion_Id="${hab.habitacion_Id}"
                             th:data-numeroHabitacion="${hab.numeroHabitacion}"
                             th:data-tipo="${hab.tipo}"
                             th:data-capacidad="${hab.capacidad}"
@@ -82,9 +82,9 @@
                     <label for="txtprecioNoche" class="form-label">Precio</label>
                     <input type="number" class="form-control" id="txtprecioNoche">
                 </div>
-                <div class="mb-3">
-                    <label for="txtdisponible" class="form-label">Disponibilidad</label>
-                    <input type="text" class="form-control" id="txtdisponible">
+                <div class="form-check form-switch" id="switchhabitacion">
+                    <input class="form-check-input" type="checkbox" role="switch" id="chkdisponible">
+                    <label class="form-check-label" for="chkdisponible">Disponible</label>
                 </div>
                 <div class="mb-3">
                     <label for="txtfecha_ultima_mantenimiento" class="form-label">Fec. Ult. Mant.</label>
@@ -94,6 +94,7 @@
                     <label for="cbonombre" class="form-label">Hotel</label>
                     <select id="cbonombre" class="form-control"></select>
                 </div>
+
                 <input type="hidden" id="hddcodhab" value="0">
             </div>
             <div class="modal-footer">

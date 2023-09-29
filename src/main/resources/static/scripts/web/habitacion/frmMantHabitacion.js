@@ -3,7 +3,9 @@ $(document).on("click", "#btnagregar", function(){
     $("#txttipo").val("");
     $("#txtcapacidad").val("");
     $("#txtprecioNoche").val("");
-    $("#txtdisponible").val("");
+    //$("#txtdisponible").val("");
+    $("#switchhabitacion" ).hide();
+    $("#chkdisponible").prop("checked", true);
     $("#txtfecha_ultima_mantenimiento").val("");
     $("#hddcodhab").val("0");
     $("#cbonombre").empty();
@@ -22,6 +24,13 @@ $(document).on("click", ".btnactualizar", function(){
     $("#cbonombre").empty();
     listarCboHoteles($(this).attr("data-nombre"));
     $("#modalNuevo").modal("show");
+    $("#switchhabitacion" ).show();
+     console.log($(this).attr("data-disponible"));
+        if($(this).attr("data-disponible") === "true"){
+            $("#chkdisponible").prop("checked", true);
+        }else
+            $("#chkdisponible").prop("checked", false);
+        $("#modalNuevo").modal("show");
 });
 
 $(document).on("click", "#btnguardar", function(){
@@ -30,12 +39,12 @@ $(document).on("click", "#btnguardar", function(){
         url: "/habitacion/guardar",
         contentType: "application/json",
         data: JSON.stringify({
-            habitacionId: $("#hddcodhab").val(),
+            habitacion_Id: $("#hddcodhab").val(),
             numeroHabitacion: $("#txtnumeroHabitacion").val(),
             tipo: $("#txttipo").val(),
             capacidad: $("#txtcapacidad").val(),
             precioNoche: $("#txtprecioNoche").val(),
-            disponible: $("#txtdisponible").val(),
+            disponible: $('#chkdisponible').prop('checked'),
             fecha_ultima_mantenimiento: $("#txtfecha_ultima_mantenimiento").val(),
             nombre: $("#cbonombre").val(),
         }),
@@ -76,24 +85,24 @@ function listarHabitaciones(){
             $("#tblhabitaciones > tbody").html("");
             $.each(resultado, function(index, value){
                 $("#tblhabitaciones > tbody").append("<tr>"+
-                    "<td>"+value.habitacionId+"</td>"+
+                    "<td>"+value.habitacion_Id+"</td>"+
                     "<td>"+value.numeroHabitacion+"</td>"+
                     "<td>"+value.tipo+"</td>"+
                     "<td>"+value.capacidad+"</td>"+
                     "<td>"+value.precioNoche+"</td>"+
                     "<td>"+value.capacidad+"</td>"+
                     "<td>"+value.fecha_ultima_mantenimiento+"</td>"+
-                    "<td>"+value.hotel.nombre+"</td>"+
+                    "<td>"+value.hab.hotel.nombre+"</td>"+
                     "<td>"+
                         "<button type='button' class='btn btn-info btnactualizar'"+
-                                     "data-habitacionId='"+value.habitacionId+"'"+
+                                     "data-habitacionId='"+value.habitacion_Id+"'"+
                                      "data-numeroHabitacion='"+value.numeroHabitacion+"'"+
                                      "data-tipo='"+value.tipo+"'"+
                                      "data-capacidad='"+value.capacidad+"'"+
                                      "data-precioNoche='"+value.precioNoche+"'"+
                                      "data-disponible='"+value.disponible+"'"+
                                      "data-fecha_ultima_mantenimiento='"+value.fecha_ultima_mantenimiento+"'"+
-                                     "data-nombre='"+value.categories.nombre+"'"+
+                                     "data-nombre='"+value.hab.hotel.nombre+"'"+
                                      "><i class='fas fa-edit'></i></button>"+
                     "</td></tr>");
             })
