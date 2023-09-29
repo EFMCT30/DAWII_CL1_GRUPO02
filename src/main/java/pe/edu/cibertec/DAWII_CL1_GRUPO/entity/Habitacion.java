@@ -32,8 +32,4 @@ public class Habitacion {
     @ManyToOne
     @JoinColumn(name = "hotelId")
     private Hotel hotel;
-   // @OneToMany(mappedBy = "habitacion")
-    //private List<ReservaHabitacion> reservaHabitaciones;
-
-
 }
