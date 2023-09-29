@@ -3,12 +3,13 @@ $(document).on("click", "#btnagregar", function(){
     $("#txttipo").val("");
     $("#txtcapacidad").val("");
     $("#txtprecioNoche").val("");
-    //$("#txtdisponible").val("");
-    $("#switchhabitacion" ).hide();
-    $("#chkdisponible").prop("checked", true);
     $("#txtfecha_ultima_mantenimiento").val("");
+    //$("#txtdisponible").val("");
     $("#hddcodhab").val("0");
     $("#cbonombre").empty();
+    //$("#switchhabitacion" ).hide();
+    $("#switchhabitacion" ).show();
+    $("#chkdisponible").prop("checked", false);
     listarCboHoteles(0);
     $("#modalNuevo").modal("show");
 });
@@ -20,7 +21,7 @@ $(document).on("click", ".btnactualizar", function(){
     $("#txtprecioNoche").val($(this).attr("data-precioNoche"));
     $("#txtdisponible").val($(this).attr("data-disponible"));
     $("#txtfecha_ultima_mantenimiento").val($(this).attr("data-fecha_ultima_mantenimiento"));
-    $("#hddcodhab").val($(this).attr("data-habitacion_Id"));
+    $("#hddcodhab").val($(this).attr("data-habitacionId"));
     $("#cbonombre").empty();
     listarCboHoteles($(this).attr("data-nombre"));
     $("#modalNuevo").modal("show");
@@ -89,9 +90,9 @@ function listarHabitaciones(){
                     "<td>"+value.tipo+"</td>"+
                     "<td>"+value.capacidad+"</td>"+
                     "<td>"+value.precioNoche+"</td>"+
-                    "<td>"+value.capacidad+"</td>"+
+                    "<td>"+value.disponible+"</td>"+
                     "<td>"+value.fecha_ultima_mantenimiento+"</td>"+
-                    "<td>"+value.hab.hotel.nombre+"</td>"+
+                    "<td>"+value.hotel.nombre+"</td>"+
                     "<td>"+
                         "<button type='button' class='btn btn-info btnactualizar'"+
                                      "data-habitacionId='"+value.habitacion_Id+"'"+
@@ -101,7 +102,7 @@ function listarHabitaciones(){
                                      "data-precioNoche='"+value.precioNoche+"'"+
                                      "data-disponible='"+value.disponible+"'"+
                                      "data-fecha_ultima_mantenimiento='"+value.fecha_ultima_mantenimiento+"'"+
-                                     "data-nombre='"+value.hab.hotel.nombre+"'"+
+                                     "data-nombre='"+value.hotel.hotelId+"'"+
                                      "><i class='fas fa-edit'></i></button>"+
                     "</td></tr>");
             })
