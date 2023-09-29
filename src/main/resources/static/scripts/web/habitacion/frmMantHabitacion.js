@@ -20,12 +20,11 @@ $(document).on("click", ".btnactualizar", function(){
     $("#txtprecioNoche").val($(this).attr("data-precioNoche"));
     $("#txtdisponible").val($(this).attr("data-disponible"));
     $("#txtfecha_ultima_mantenimiento").val($(this).attr("data-fecha_ultima_mantenimiento"));
-    $("#hddcodhab").val($(this).attr("data-habitacionId"));
+    $("#hddcodhab").val($(this).attr("data-habitacion_Id"));
     $("#cbonombre").empty();
     listarCboHoteles($(this).attr("data-nombre"));
     $("#modalNuevo").modal("show");
     $("#switchhabitacion" ).show();
-     console.log($(this).attr("data-disponible"));
         if($(this).attr("data-disponible") === "true"){
             $("#chkdisponible").prop("checked", true);
         }else
@@ -46,7 +45,7 @@ $(document).on("click", "#btnguardar", function(){
             precioNoche: $("#txtprecioNoche").val(),
             disponible: $('#chkdisponible').prop('checked'),
             fecha_ultima_mantenimiento: $("#txtfecha_ultima_mantenimiento").val(),
-            nombre: $("#cbonombre").val(),
+            hotelId: $("#cbonombre").val(),
         }),
         success: function(resultado){
             if(resultado.respuesta){
