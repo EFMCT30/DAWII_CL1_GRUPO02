@@ -1,4 +1,4 @@
-package pe.edu.cibertec.DAWII_CL1_GRUPO.model.bd;
+package pe.edu.cibertec.DAWII_CL1_GRUPO.entity;
 
 
 import jakarta.persistence.*;
@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Date;
-import java.util.List;
 
 
 @Data

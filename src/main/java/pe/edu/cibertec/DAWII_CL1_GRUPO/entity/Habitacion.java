@@ -1,4 +1,4 @@
-package pe.edu.cibertec.DAWII_CL1_GRUPO.model.bd;
+package pe.edu.cibertec.DAWII_CL1_GRUPO.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

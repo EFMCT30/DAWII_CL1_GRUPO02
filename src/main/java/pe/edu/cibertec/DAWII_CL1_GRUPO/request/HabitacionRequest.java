@@ -1,8 +1,7 @@
-package pe.edu.cibertec.DAWII_CL1_GRUPO.model.request;
+package pe.edu.cibertec.DAWII_CL1_GRUPO.request;
 
 
 import lombok.Data;
-import pe.edu.cibertec.DAWII_CL1_GRUPO.model.bd.Hotel;
 
 import java.math.BigDecimal;
 import java.sql.Date;

@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<script th:src="@{/scripts/web/habitacion/frmMantHabitacion.js}"
+<script th:src="@{/scripts/web/backoffice/habitacion/frmMantHabitacion.js}"
         type="text/javascript"></script>
 <nav th:replace="~{layout::menu}"></nav>
 <div class="card ">
@@ -86,9 +86,15 @@
                     <input class="form-check-input" type="checkbox" role="switch" id="chkdisponible">
                     <label class="form-check-label" for="chkdisponible">Disponible</label>
                 </div>
-                <div class="mb-3">
-                    <label for="txtfecha_ultima_mantenimiento" class="form-label">Fec. Ult. Mant.</label>
-                    <input type="text" class="form-control" id="txtfecha_ultima_mantenimiento">
+                <div class="form-group">
+                    <label for="txtfecha_ultima_mantenimiento">Fec. Ult. Mant.</label>
+                    <div class="input-group date" data-provide="datepicker">
+                        <input id="txtfecha_ultima_mantenimiento" type="text" class="form-control datepicker">
+
+                        <div class="input-group-addon ">
+                            <span class="glyphicon glyphicon-th"></span>
+                        </div>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="cbonombre" class="form-label">Hotel</label>
