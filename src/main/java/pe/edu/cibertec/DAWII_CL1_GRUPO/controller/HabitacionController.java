@@ -21,7 +21,7 @@ public class HabitacionController {
     @GetMapping("/frmMantHabitacion")
     public String index(Model model){
         model.addAttribute("listaHabitaciones",habitacionService.listarHabitaciones());
-        return "habitacion/frmMantHabitacion";
+        return "/habitacion/frmMantHabitacion";
     }
 
     @GetMapping("/listar")

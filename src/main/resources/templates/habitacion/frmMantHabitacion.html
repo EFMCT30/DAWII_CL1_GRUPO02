@@ -37,20 +37,20 @@
                 <td th:text="${hab.numeroHabitacion}"></td>
                 <td th:text="${hab.tipo}"></td>
                 <td th:text="${hab.capacidad}"></td>
-                <td th:text="${hab.precioNoche"></td>
+                <td th:text="${hab.precioNoche}"></td>
                 <td th:text="${hab.disponible}"></td>
-                <td th:text="${hab.fecha_ultima_mantenimiento"></td>
-                <td th:text="${hab.hotel.nombre"></td>
+                <td th:text="${hab.fecha_ultima_mantenimiento}"></td>
+                <td th:text="${hab.hotel.nombre}"></td>
                 <td>
                     <button type="button" class="btn btn-info btnactualizar"
-                            th:data-prodcod="${hab.habitacionId}"
-                            th:data-prodname="${hab.numeroHabitacion}"
-                            th:data-produnit="${hab.tipo}"
-                            th:data-prodcateg="${hab.capacidad}"
-                            th:data-prodprov="${hab.precioNoche}"
-                            th:data-prodcateg="${hab.disponible}"
-                            th:data-prodprov="${hab.fecha_ultima_mantenimiento}"
-                            th:data-descontinuado="${hab.hotel.nombre}"><i class="fas fa-edit"></i></button>
+                            th:data-habitacionId="${hab.habitacionId}"
+                            th:data-numeroHabitacion="${hab.numeroHabitacion}"
+                            th:data-tipo="${hab.tipo}"
+                            th:data-capacidad="${hab.capacidad}"
+                            th:data-precioNoche="${hab.precioNoche}"
+                            th:data-disponible="${hab.disponible}"
+                            th:data-fecha_ultima_mantenimiento="${hab.fecha_ultima_mantenimiento}"
+                            th:data-nombre="${hab.hotel.nombre}"><i class="fas fa-edit"></i></button>
                 </td>
             </tr>
             </tbody>

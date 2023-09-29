@@ -28,7 +28,7 @@ public class Habitacion {
     @Column(name = "disponible")
     private boolean disponible;
     @Column(name = "fecha_ultima_mantenimiento")
-    private Date fechaUltimaMantenimiento;
+    private Date fecha_ultima_mantenimiento;
     @ManyToOne
     @JoinColumn(name = "hotelId")
     private Hotel hotel;
