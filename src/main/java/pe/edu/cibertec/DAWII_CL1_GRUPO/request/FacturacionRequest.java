@@ -1,4 +1,4 @@
-package pe.edu.cibertec.DAWII_CL1_GRUPO.entity.request;
+package pe.edu.cibertec.DAWII_CL1_GRUPO.request;
 
 import lombok.Data;
 import pe.edu.cibertec.DAWII_CL1_GRUPO.entity.Cliente;

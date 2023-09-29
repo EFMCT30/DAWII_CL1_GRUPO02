@@ -3,8 +3,8 @@ package pe.edu.cibertec.DAWII_CL1_GRUPO.service;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import pe.edu.cibertec.DAWII_CL1_GRUPO.entity.Facturacion;
-import pe.edu.cibertec.DAWII_CL1_GRUPO.entity.request.FacturacionRequest;
-import pe.edu.cibertec.DAWII_CL1_GRUPO.entity.response.ResultadoResponse;
+import pe.edu.cibertec.DAWII_CL1_GRUPO.request.FacturacionRequest;
+import pe.edu.cibertec.DAWII_CL1_GRUPO.response.ResultadoResponse;
 import pe.edu.cibertec.DAWII_CL1_GRUPO.repository.FacturacionRepository;
 
 import java.util.List;

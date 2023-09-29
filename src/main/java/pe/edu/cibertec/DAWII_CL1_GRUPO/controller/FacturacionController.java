@@ -5,8 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.cibertec.DAWII_CL1_GRUPO.entity.Facturacion;
-import pe.edu.cibertec.DAWII_CL1_GRUPO.entity.request.FacturacionRequest;
-import pe.edu.cibertec.DAWII_CL1_GRUPO.entity.response.ResultadoResponse;
+import pe.edu.cibertec.DAWII_CL1_GRUPO.request.FacturacionRequest;
+import pe.edu.cibertec.DAWII_CL1_GRUPO.response.ResultadoResponse;
 import pe.edu.cibertec.DAWII_CL1_GRUPO.service.FacturacionService;
 
 import java.util.List;
@@ -22,7 +22,7 @@ public class FacturacionController {
     public String index(Model model){
         model.addAttribute("listaProductos",
                 facturacionService.listarFacturacion());
-        return "backoffice/facturacion/frmMantFacturacion";
+        return "facturacion/frmMantFacturacion";
     }
     @GetMapping("/listar")
     @ResponseBody

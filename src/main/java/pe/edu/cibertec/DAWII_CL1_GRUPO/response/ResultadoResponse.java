@@ -1,4 +1,4 @@
-package pe.edu.cibertec.DAWII_CL1_GRUPO.entity.response;
+package pe.edu.cibertec.DAWII_CL1_GRUPO.response;
 
 import lombok.Builder;
 import lombok.Data;
