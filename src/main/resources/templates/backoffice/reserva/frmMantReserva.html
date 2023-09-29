@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout::head}">
+    <meta charset="UTF-8">
+    <title>Listado Reserva</title>
+</head>
+<body>
+<script th:src="@{/scripts/web/backoffice/reserva/frmMantReserva.js}"
+        type="text/javascript"></script>
+<nav th:replace="~{layout::menu}"></nav>
+<div class="card ">
+    <div class="card-header text-bg-dark mb-3">
+        Mantenimiento de Reserva
+    </div>
+    <div class="card-body">
+        <button id="btnagregar"
+                type="button" class="btn btn-primary"><i class="fas fa-plus"></i> Agregar</button>
+        <hr />
+        <div id="mensaje"></div>
+        <table id="tblreserva" class="table">
+            <thead>
+            <tr>
+                <th scope="col">Reserva ID</th>
+                <th scope="col">Fecha Inicio</th>
+                <th scope="col">Fecha  Fin</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Precio Total</th>
+                <th scope="col">Fecha Creacion</th>
+                <th scope="col">Comentarios</th>
+                <th scope="col">Nombre Cliente</th>
+                <th scope="col">Reserva Habitacion</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="reserva :${listarReserva}">
+                <td th:text="${reserva.reservaId}"></td>
+                <td th:text="${reserva.fechaInicio}"></td>
+                <td th:text="${reserva.fechaFin}"></td>
+                <td th:text="${reserva.estado}"></td>
+                <td th:text="${reserva.precioTotal}"></td>
+                <td th:text="${reserva.fechaCreacion}"></td>
+                <td th:text="${reserva.comentarios}"></td>
+                <td th:text="${reserva.cliente.nombre}"></td>
+                <td th:text="${reserva.reservaHabitaciones}"></td>
+                <td>
+                    <button type="button" class="btn btn-info btnactualizar"
+                            th:data-reservaId="${reserva.reservaId}"
+                            th:data-fechaInicio="${reserva.fechaInicio}"
+                            th:data-fechaFin="${reserva.fechaFin}"
+                            th:data-estado="${reserva.estado}"
+                            th:data-precioTotal="${reserva.precioTotal}"
+                            th:data-fechaCreacion="${reserva.fechaCreacion}"
+                            th:data-comentarios="${reserva.comentarios}"
+                            th:data-cliente.nombre="${reserva.cliente.nombre}"
+                            th:data-reservaHabitaciones="${reserva.reservaHabitaciones}"
+                    >
+                        <i class="fas fa-edit"></i></button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!--&lt;!&ndash; Modal Registrar / Actualizar Producto &ndash;&gt;-->
+<!--<div class="modal fade" id="modalNuevo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!--            <div class="modal-header">-->
+<!--                <h1 class="modal-title fs-5" id="exampleModalLabel">Producto</h1>-->
+<!--                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                <div class="mb-3">-->
+<!--                    <label for="txtnomproducto" class="form-label">Nombre</label>-->
+<!--                    <input type="text" class="form-control" id="txtnomproducto">-->
+<!--                </div>-->
+<!--                <div class="mb-3">-->
+<!--                    <label for="txtpreciounit" class="form-label">Precio Unitario</label>-->
+<!--                    <input type="number" class="form-control" id="txtpreciounit">-->
+<!--                </div>-->
+<!--                <div class="mb-3">-->
+<!--                    <label for="cbocategoria" class="form-label">Categoria</label>-->
+<!--                    <select id="cbocategoria" class="form-control"></select>-->
+<!--                </div>-->
+<!--                <div class="mb-3">-->
+<!--                    <label for="cboproveedor" class="form-label">Proveedor</label>-->
+<!--                    <select id="cboproveedor" class="form-control"></select>-->
+<!--                </div>-->
+<!--                <div class="form-check form-switch" id="switchproducto">-->
+<!--                    <input class="form-check-input" type="checkbox" role="switch" id="chkdescontinuado">-->
+<!--                    <label class="form-check-label" for="chkdescontinuado">Descontinuado</label>-->
+<!--                </div>-->
+<!--                <input type="hidden" id="hddcodprod" value="0">-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-times"></i> Cancelar</button>-->
+<!--                <button type="button" id="btnguardar" class="btn btn-primary"><i class="fas fa-save"></i> Guardar</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+</body>
+</html>
