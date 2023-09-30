@@ -34,7 +34,7 @@ public class Cliente {
 
 
     @ManyToOne
-    @JoinColumn(name = "IdPais")
+    @JoinColumn(name = "id_Pais")
     private Pais pais;
 
 

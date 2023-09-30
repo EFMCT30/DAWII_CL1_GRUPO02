@@ -15,10 +15,9 @@ import java.sql.Date;
 public class Pais {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer IdPais;
-    @Column(name = "Nompais")
-    private String Nompais;
-
+    private Integer id_pais;
+    @Column(name = "nompais")
+    private String nompais;
 
 
 }

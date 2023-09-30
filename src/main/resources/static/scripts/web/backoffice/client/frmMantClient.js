@@ -31,7 +31,7 @@ $(document).on("click", "#btnguardar", function(){
             email: $("#txtemail").val(),
             telefono: $("#txttelefono").val(),
             direccion: $("#txtdireccion").val(),
-            IdPais: $('#cbopais').val(),
+            id_pais: $('#cbopais').val(),
         }),
         success: function(resultado){
             if(resultado.respuesta){
@@ -52,7 +52,7 @@ function listarCboPaises(idpais){
         console.log(resultado);
             $.each(resultado, function(index, value){
                 $("#cbopais").append(
-                    `<option value="${value.IdPais}">${value.Nompais}</option>`
+                    `<option value="${value.id_pais}">${value.nompais}</option>`
 
                 )
             });
@@ -76,16 +76,16 @@ function listaClientes(){
                     "<td>"+value.nombre+"</td>"+
                     "<td>"+value.email+"</td>"+
                      "<td>"+value.telefono+"</td>"+
-                      "<td>"+value.direccion+"</td>"+
-                    "<td>"+value.pais.Nompais+"</td>"+
+                     "<td>"+value.direccion+"</td>"+
+                    "<td>"+value.pais.nompais+"</td>"+
                     "<td>"+
                         "<button type='button' class='btn btn-info btnactualizar'"+
-                                     "data-prodcod='"+value.cliente_id+"'"+
-                                     "data-prodname='"+value.nombre+"'"+
-                                     "data-produnit='"+value.email+"'"+
-                                     "data-prodcateg='"+value.telefono+"'"+
-                                     "data-prodprov='"+value.direccion+"'"+
-                                     "data-descontinuado='"+value.pais.IdPais+"'"+
+                                     "data-cliente_id='"+value.cliente_id+"'"+
+                                     "data-nombre='"+value.nombre+"'"+
+                                     "data-email='"+value.email+"'"+
+                                     "data-telefono='"+value.telefono+"'"+
+                                     "data-direccion='"+value.direccion+"'"+
+                                     "data-pais='"+value.pais.id_pais+"'"+
                                      "><i class='fas fa-edit'></i></button>"+
                     "</td></tr>");
             })

@@ -37,7 +37,7 @@ public class ClienteService {
 
             // Obtén el país por su Id
             Pais pais = new Pais();
-            pais.setIdPais(client.getIdPais());
+            pais.setId_pais(pais.getId_pais());
 
             // Asigna el país al cliente
             objClient.setPais(pais);

@@ -11,5 +11,5 @@ public class ClienteRequest {
     private String email;
     private String telefono;
     private String direccion;
-    private Integer IdPais;
+    private Integer id_pais;
 }

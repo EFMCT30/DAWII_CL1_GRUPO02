@@ -36,7 +36,7 @@
                 <td th:text="${cli.email}"></td>
                 <td th:text="${cli.telefono}"></td>
                 <td th:text="${cli.direccion}"></td>
-                <td th:text="${cli.pais.Nompais}"></td>
+                <td th:text="${cli.pais.nompais}"></td>
 
 <td>
     <button type="button" class="btn btn-info btnactualizar"
@@ -45,7 +45,7 @@
             th:data-email="${cli.email}"
             th:data-telefono="${cli.telefono}"
             th:data-direccion="${cli.direccion}"
-            th:data-pais="${cli.pais.IdPais}"><i class="fas fa-edit"></i></button>
+            th:data-pais="${cli.pais.id_pais}"><i class="fas fa-edit"></i></button>
     <!--crea MEET -->
 
 </td>
@@ -69,7 +69,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="txtemail" class="form-label">Email</label>
-                    <input type="number" class="form-control" id="txtemail">
+                    <input type="email" class="form-control" id="txtemail">
                 </div>
                 <div class="mb-3">
                     <label for="txttelefono" class="form-label">Telèfono</label>
@@ -77,7 +77,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="txtdireccion" class="form-label">Direcciòn</label>
-                    <input type="number" class="form-control" id="txtdireccion">
+                    <input type="text" class="form-control" id="txtdireccion">
                 </div>
                 <div class="mb-3">
                     <label for="cbopais" class="form-label">Pais</label>
