@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import pe.edu.cibertec.DAWII_CL1_GRUPO.entity.Reserva;
 import pe.edu.cibertec.DAWII_CL1_GRUPO.request.ReservaRequest;
 import pe.edu.cibertec.DAWII_CL1_GRUPO.response.ResultadoResponse;
-import pe.edu.cibertec.DAWII_CL1_GRUPO.service.ClienteService;
 import pe.edu.cibertec.DAWII_CL1_GRUPO.service.ReservaService;
 
 import java.util.List;
@@ -25,7 +24,6 @@ public class ReservaController {
     @GetMapping("")
     public String index(Model model){
         model.addAttribute("listarReserva",reservaService.listarReservar());
-
         return "backoffice/reserva/frmMantReserva";
     }
     @GetMapping("/listar")

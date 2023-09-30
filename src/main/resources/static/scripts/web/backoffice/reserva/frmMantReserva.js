@@ -63,7 +63,7 @@ function listarCboClientes(idcliente){
         success: function(resultado){
             $.each(resultado, function(index, value){
                 $("#cbocliente").append(
-                    `<option value="${value.nombre}">${value.nombre}</option>`
+                    `<option value="${value.clienteId}">${value.nombre}</option>`
                 )
             });
             if (idcliente > 0){

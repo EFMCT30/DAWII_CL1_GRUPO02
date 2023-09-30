@@ -1,6 +1,7 @@
 package pe.edu.cibertec.DAWII_CL1_GRUPO.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,6 +31,7 @@ public class Reserva {
         @Column(name = "precio_total")
         private BigDecimal precioTotal;
         @Column(name = "fecha_creacion")
+        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss.SSS")
         private Timestamp fechaCreacion;
         private String comentarios;
 
