@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout::head}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script th:src="@{/scripts/web/backoffice/facturacion/frmMantFacturacion.js}"
+        type="text/javascript"></script>
+<nav th:replace="~{layout::menu}"></nav>
+<div class="card ">
+    <div class="card-header text-bg-dark mb-3">
+        Mantenimiento de Facturacion
+    </div>
+    <div class="card-body">
+        <button id="btnagregar"
+                type="button" class="btn btn-primary"><i class="fas fa-plus"></i> Agregar</button>
+        <hr />
+        <div id="mensaje"></div>
+        <table id="tblfacturacion" class="table">
+            <thead>
+            <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Monto</th>
+                <th scope="col">Id Cliente</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="fact : ${listaProductos}">
+                <td th:text="${fact.facturacionId}"></td>
+                <td th:text="${fact.fechaFacturacion}"></td>
+                <td th:text="${fact.montoTotal}"></td>
+                <td th:text="${fact.idcliente}"></td>
+                <td>
+                    <button type="button" class="btn btn-info btnactualizar"
+                            data-facturacionId="${fact.facturacionId}"
+                            data-fechaFacturacion="${fact.fechaFacturacion}"
+                            data-montoTotal="${fact.montoTotal}"
+                            data-idCliente="${fact.idcliente}">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Modal Registrar / Actualizar -->
+<div class="modal fade" id="modalNuevo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Factura</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="txtIdfacturacion" class="form-label">Codigo</label>
+                    <input type="text" class="form-control" id="txtIdfacturacion">
+                </div>
+                <div class="mb-3">
+                    <label for="txtFechafacturacion" class="form-label">Fecha</label>
+                    <input type="date" class="form-control" id="txtFechafacturacion">
+                </div>
+                <div class="mb-3">
+                    <label for="txtIdCliente" class="form-label">Id Cliente</label>
+                    <input type="number" class="form-control" id="txtIdCliente">
+                </div>
+                <div class="mb-3">
+                    <label for="txtMontofacturacion" class="form-label">Monto</label>
+                    <input type="number" class="form-control" id="txtMontofacturacion">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-times"></i> Cancelar</button>
+                <button type="button" id="btnguardar" class="btn btn-primary"><i class="fas fa-save"></i> Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
