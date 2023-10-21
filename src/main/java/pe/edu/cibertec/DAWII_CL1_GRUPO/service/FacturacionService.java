@@ -2,6 +2,7 @@ package pe.edu.cibertec.DAWII_CL1_GRUPO.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import pe.edu.cibertec.DAWII_CL1_GRUPO.entity.Cliente;
 import pe.edu.cibertec.DAWII_CL1_GRUPO.entity.Facturacion;
 import pe.edu.cibertec.DAWII_CL1_GRUPO.request.FacturacionRequest;
 import pe.edu.cibertec.DAWII_CL1_GRUPO.response.ResultadoResponse;
@@ -19,17 +20,21 @@ public class FacturacionService {
         return facturacionRepository.findAll();
     }
 
+
     public ResultadoResponse guardarFacturacion(FacturacionRequest facturacion){
         String mensaje = "Facturacion registrada correctamente";
         Boolean respuesta = true;
         try {
             Facturacion objFacturacion = new Facturacion();
-            if(facturacion.getFacturacionId() > 0){
-                objFacturacion.setFacturacionId(facturacion.getFacturacionId());
+            if(facturacion.getFacturacion_id() > 0){
+                objFacturacion.setFacturacion_id(facturacion.getFacturacion_id());
             }
-            objFacturacion.setFechaFacturacion(facturacion.getFechaFacturacion());
-            objFacturacion.setCliente(facturacion.getCliente());
-            objFacturacion.setMontoTotal(facturacion.getMontoTotal());
+            objFacturacion.setFecha_facturacion(facturacion.getFecha_facturacion());
+            objFacturacion.setMonto_total(facturacion.getMonto_total());
+            Cliente cliente = new Cliente();
+            cliente.setCliente_id(facturacion.getCliente_id());
+            objFacturacion.setCliente(cliente);
+            facturacionRepository.save(objFacturacion);
         }catch (Exception ex){
             mensaje = "Facturacion no registrada";
             respuesta = false;
