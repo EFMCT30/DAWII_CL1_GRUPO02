@@ -9,8 +9,8 @@ import java.util.Date;
 @Data
 public class FacturacionRequest {
 
-    private Date fechaFacturacion;
-    private BigDecimal montoTotal;
-    private Cliente cliente;
-    private Long facturacionId;
+    private Date fecha_facturacion;
+    private BigDecimal monto_total;
+    private Long cliente_id;
+    private Long facturacion_id;
 }
