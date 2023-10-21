@@ -1,12 +1,13 @@
 package pe.edu.cibertec.DAWII_CL1_GRUPO.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.util.Date;
-import java.util.List;
 
 @Data
 @AllArgsConstructor

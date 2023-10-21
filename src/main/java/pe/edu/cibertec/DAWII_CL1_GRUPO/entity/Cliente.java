@@ -1,10 +1,12 @@
 package pe.edu.cibertec.DAWII_CL1_GRUPO.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
-import java.util.List;
 
 @Data
 @Builder
@@ -16,7 +18,7 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "cliente_id")
-    private Long clienteId;
+    private Long cliente_id;
     private String nombre;
     private String email;
     private String telefono;
@@ -26,11 +28,5 @@ public class Cliente {
     private boolean activo;
     private String preferencias;
 
-    @OneToMany(mappedBy = "cliente")
-    private List<Reserva> reservas;
-
-    //@OneToOne(fetch = FetchType.LAZY)
-    //@JoinColumn(name = "user_id", referencedColumnName = "id", unique = true, nullable = false)
-    //private UserEntity user; // Referencia al usuario
 
 }

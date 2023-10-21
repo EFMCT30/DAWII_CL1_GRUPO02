@@ -2,11 +2,13 @@ package pe.edu.cibertec.DAWII_CL1_GRUPO.entity;
 
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 
 @Data
@@ -19,23 +21,16 @@ public class Facturacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "facturacion_id")
-    private Long facturacionId;
+    private Long facturacion_id;
 
     @Column(name = "fecha_facturacion")
-    private Date fechaFacturacion;
+    private Date fecha_facturacion;
 
     @Column(name = "monto_total")
-    private BigDecimal montoTotal;
+    private BigDecimal monto_total;
 
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
-    @ManyToMany
-    @JoinTable(
-            name = "facturacion_reserva",
-            joinColumns = @JoinColumn(name = "facturacion_id"),
-            inverseJoinColumns = @JoinColumn(name = "reserva_id")
-    )
-    private List<Reserva> reservas;
 }
