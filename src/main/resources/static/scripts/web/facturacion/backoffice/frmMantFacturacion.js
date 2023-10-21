@@ -1,18 +1,29 @@
 $(document).on("click", "#btnagregar", function(){
-    $("#txtIdfacturacion").val("");
     $("#txtFechafacturacion").val("");
     $("#txtMontofacturacion").val("");
-    $("#txtIdCliente").val("");
+     $("#cbonombre").empty();
+    $("#hddcodhab").val("0");
+    listarCboClientes(0);
     $("#modalNuevo").modal("show");
 });
 
-$(document).on("click", ".btnactualizar", function () {
-    $("#txtIdfacturacion").val($(this).attr("data-facturacionId"));
-    $("#txtFechafacturacion").val($(this).attr("data-fechaFacturacion"));
-    $("#txtMontofacturacion").val($(this).attr("data-montoTotal"));
-    $("#txtMontofacturacion").val($(this).attr("data-idCliente"));
-    $("#modalNuevo").modal("show");
-});
+function listarCboClientes(idCliente){
+    $.ajax({
+        type: "GET",
+        url: "/cliente/listar",
+        dataType: "json",
+        success: function(resultado){
+            $.each(resultado, function(index, value){
+                $("#cbonombre").append(
+                    `<option value="${value.cliente_id}">${value.nombre}</option>`
+                )
+            });
+            if(idCliente > 0){
+                $("#cbonombre").val(idCliente);
+            }
+        }
+    });
+}
 
 $(document).on("click", "#btnguardar", function () {
     $.ajax({
@@ -20,14 +31,14 @@ $(document).on("click", "#btnguardar", function () {
         url: "/facturacion/guardar",
         contentType: "application/json",
         data: JSON.stringify({
-            facturacionId: $("#txtIdfacturacion").val(),
-            fechaFacturacion: $("#txtFechafacturacion").val(),
-            montoTotal: $("#txtMontofacturacion").val(),
-            idcliente: $("#txtIdCliente").val(),
+            facturacion_id: $("#hddcodhab").val(),
+            fecha_facturacion: $("#txtFechafacturacion").val(),
+            monto_total: $("#txtMontofacturacion").val(),
+            cliente_id: $("#cbonombre").val(),
         }),
         success: function (resultado) {
             if (resultado.respuesta) {
-                listarProductos();
+                listarFacturaciones();
             }
             alert(resultado.mensaje);
         }
@@ -35,7 +46,8 @@ $(document).on("click", "#btnguardar", function () {
     $("#modalNuevo").modal("hide");
 });
 
-function listarProductos() {
+
+function listarFacturaciones() {
     $.ajax({
         type: "GET",
         url: "/facturacion/listar",
@@ -44,19 +56,28 @@ function listarProductos() {
             $("#tblfacturacion > tbody").html("");
             $.each(resultado, function (index, value) {
                 $("#tblfacturacion > tbody").append("<tr>" +
-                    "<td>" + value.facturacionId + "</td>" +
-                    "<td>" + value.fechaFacturacion + "</td>" +
-                    "<td>" + value.montoTotal + "</td>" +
-                    "<td>" + value.idcliente + "</td>" +
-                    "<td>" +
-                    "<button type='button' class='btn btn-info btnactualizar'" +
-                    "data-facturacionId='" + value.facturacionId + "'" +
-                    "data-fechaFacturacion='" + value.fechaFacturacion + "'" +
-                    "data-montoTotal='" + value.montoTotal + "'>" +
-                    "data-idCliente='" + value.idcliente + "'>" +
-                    "<i class='fas fa-edit'></i></button>" +
+                    "<td>"+value.facturacion_id+"</td>"+
+                                        "<td>"+value.fecha_facturacion+"</td>"+
+                                        "<td>"+value.monto_total+"</td>"+
+                                        "<td>"+value.cliente.nombre+"</td>"+
+                                        "<td>"+
+                                            "<button type='button' class='btn btn-info btnactualizar'"+
+                                                         "data-facturacion_id='"+value.facturacion_id+"'"+
+                                                         "data-fecha_facturacion='"+value.fecha_facturacion+"'"+
+                                                         "data-monto_total='"+value.monto_total+"'"+
+                                                         "data-idCliente='"+value.cliente.cliente_id+"'"+
+                                                         "><i class='fas fa-edit'></i></button>"+
                     "</td></tr>");
             });
         }
     });
 }
+
+$(document).on("click", ".btnactualizar", function () {
+    $("#txtFechafacturacion").val($(this).attr("data-fecha_facturacion"));
+    $("#txtMontofacturacion").val($(this).attr("data-monto_total"));
+    $("#cbonombre").empty();
+    listarCboClientes($(this).attr("data-idCliente"));
+    $("#hddcodhab").val($(this).attr("data-facturacion_id"));
+    $("#modalNuevo").modal("show");
+});

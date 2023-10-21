@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<script th:src="@{/scripts/web/backoffice/facturacion/frmMantFacturacion.js}"
+<script th:src="@{/scripts/web/facturacion/backoffice/frmMantFacturacion.js}"
         type="text/javascript"></script>
 <nav th:replace="~{layout::menu}"></nav>
 <div class="card ">
@@ -28,17 +28,16 @@
             </thead>
             <tbody>
             <tr th:each="fact : ${listaProductos}">
-                <td th:text="${fact.facturacionId}"></td>
-                <td th:text="${fact.fechaFacturacion}"></td>
-                <td th:text="${fact.montoTotal}"></td>
-                <td th:text="${fact.idcliente}"></td>
+                <td th:text="${fact.facturacion_id}"></td>
+                <td th:text="${fact.fecha_facturacion}"></td>
+                <td th:text="${fact.monto_total}"></td>
+                <td th:text="${fact.cliente.nombre}"></td>
                 <td>
                     <button type="button" class="btn btn-info btnactualizar"
-                            data-facturacionId="${fact.facturacionId}"
-                            data-fechaFacturacion="${fact.fechaFacturacion}"
-                            data-montoTotal="${fact.montoTotal}"
-                            data-idCliente="${fact.idcliente}">
-                        <i class="fas fa-edit"></i>
+                            data-facturacion_id="${fact.facturacion_id}"
+                            data-fecha_facturacion="${fact.fecha_facturacion}"
+                            data-monto_total="${fact.monto_total}"
+                            data-idCliente="${fact.cliente.cliente_id}"><i class="fas fa-edit"></i>
                     </button>
                 </td>
             </tr>
@@ -57,21 +56,18 @@
             </div>
             <div class="modal-body">
                 <div class="mb-3">
-                    <label for="txtIdfacturacion" class="form-label">Codigo</label>
-                    <input type="text" class="form-control" id="txtIdfacturacion">
-                </div>
-                <div class="mb-3">
                     <label for="txtFechafacturacion" class="form-label">Fecha</label>
-                    <input type="date" class="form-control" id="txtFechafacturacion">
+                    <input type="text" class="form-control" id="txtFechafacturacion">
                 </div>
                 <div class="mb-3">
-                    <label for="txtIdCliente" class="form-label">Id Cliente</label>
-                    <input type="number" class="form-control" id="txtIdCliente">
+                    <label for="cbonombre" class="form-label">Cliente</label>
+                    <select id="cbonombre" class="form-control"></select>
                 </div>
                 <div class="mb-3">
                     <label for="txtMontofacturacion" class="form-label">Monto</label>
                     <input type="number" class="form-control" id="txtMontofacturacion">
                 </div>
+                <input type="hidden" id="hddcodhab" value="0">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-times"></i> Cancelar</button>
