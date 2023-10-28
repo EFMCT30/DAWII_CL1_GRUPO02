@@ -26,6 +26,7 @@
                 <th scope="col">Telefono</th>
                 <th scope="col">Direccion</th>
                 <th scope="col">Pais</th>
+                <th scope="col">Activo</th>
                 <th scope="col">Actualizar</th>
             </tr>
             </thead>
@@ -37,6 +38,7 @@
                 <td th:text="${cli.telefono}"></td>
                 <td th:text="${cli.direccion}"></td>
                 <td th:text="${cli.pais.nompais}"></td>
+                <td th:text="${cli.activo}"></td>
 
 <td>
     <button type="button" class="btn btn-info btnactualizar"
@@ -45,7 +47,8 @@
             th:data-email="${cli.email}"
             th:data-telefono="${cli.telefono}"
             th:data-direccion="${cli.direccion}"
-            th:data-pais="${cli.pais.id_pais}"><i class="fas fa-edit"></i></button>
+            th:data-pais="${cli.pais.id_pais}"
+            th:data-activo="${cli.activo}"><i class="fas fa-edit"></i></button>
     <!--crea MEET -->
 
 </td>
@@ -82,6 +85,10 @@
                 <div class="mb-3">
                     <label for="cbopais" class="form-label">Pais</label>
                     <select id="cbopais" class="form-control"></select>
+                </div>
+                <div class="form-check form-switch" id="switchcliente">
+                    <input class="form-check-input" type="checkbox" role="switch" id="chkactivo">
+                    <label class="form-check-label" for="chkactivo">Activo</label>
                 </div>
                 <input type="hidden" id="hddcodli" value="0">
             </div>
