@@ -11,5 +11,6 @@ public class ClienteRequest {
     private String email;
     private String telefono;
     private String direccion;
+    private Boolean activo;
     private Integer id_pais;
 }

@@ -1,5 +1,6 @@
 package pe.edu.cibertec.DAWII_CL1_GRUPO.entity;
 
+import jakarta.annotation.Nullable;
 import lombok.*;
 import jakarta.persistence.*;
 
@@ -26,13 +27,14 @@ public class Cliente {
     @Column(name = "direccion")
     private String direccion;
     @Column(name = "fecha_registro")
-    private Date fechaRegistro;
+    @Nullable
+    private Date fechaRegistro ;
+    @Nullable
     @Column(name = "activo")
     private boolean activo;
+    @Nullable
     @Column(name = "preferencias")
     private String preferencias;
-
-
     @ManyToOne
     @JoinColumn(name = "id_Pais")
     private Pais pais;

@@ -34,18 +34,20 @@ public class ClienteService {
             objClient.setEmail(client.getEmail());
             objClient.setTelefono(client.getTelefono());
             objClient.setDireccion(client.getDireccion());
-
-            // Obtén el país por su Id
+            Boolean activo = false;
+            if(client.getActivo()!=null){
+                activo = client.getActivo();
+            }
+            objClient.setActivo(activo);
             Pais pais = new Pais();
-            pais.setId_pais(pais.getId_pais());
-
-            // Asigna el país al cliente
+            pais.setId_pais(client.getId_pais());
             objClient.setPais(pais);
 
             clienteRepository.save(objClient);
         } catch (Exception ex) {
-            mensaje = "Cliente no registrado";
+            mensaje = "Cliente no registrado"+ex;
             respuesta = false;
+            System.out.println(client);
         }
         return ResultadoResponse.builder().mensaje(mensaje).respuesta(respuesta).build();
     }

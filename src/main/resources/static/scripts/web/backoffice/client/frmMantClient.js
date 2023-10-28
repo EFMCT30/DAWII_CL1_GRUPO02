@@ -5,6 +5,8 @@ $(document).on("click", "#btnagregar", function(){
     $("#txtdireccion").val("");
     $("#hddcodli").val("0");
     $("#cbopais").empty();
+    $("#switchcliente" ).show();
+    $("#chkactivo").prop("checked", false);
      listarCboPaises(0);
     $("#modalNuevo").modal("show");
 });
@@ -18,6 +20,13 @@ $(document).on("click", ".btnactualizar", function(){
     $("#cbopais").empty();
     listarCboPaises($(this).attr("data-pais"));
     $("#modalNuevo").modal("show");
+    $("#switchcliente").show();
+
+       if ($(this).attr("data-activo") === "true") {
+            $("#chkactivo").prop("checked", true);
+        } else {
+            $("#chkactivo").prop("checked", false);
+        }
 });
 
 $(document).on("click", "#btnguardar", function(){
@@ -25,6 +34,7 @@ $(document).on("click", "#btnguardar", function(){
         type: "POST",
         url: "/client/guardar",
         contentType: "application/json",
+
         data: JSON.stringify({
             cliente_id: $("#hddcodli").val(),
             nombre: $("#txtnombre").val(),
@@ -32,12 +42,15 @@ $(document).on("click", "#btnguardar", function(){
             telefono: $("#txttelefono").val(),
             direccion: $("#txtdireccion").val(),
             id_pais: $('#cbopais').val(),
+            activo: $('#chkactivo').prop('checked'),
         }),
+
         success: function(resultado){
             if(resultado.respuesta){
                 listaClientes();
             }
             alert(resultado.mensaje);
+            console.log(resultado);
         }
     });
     $("#modalNuevo").modal("hide");
@@ -78,6 +91,7 @@ function listaClientes(){
                      "<td>"+value.telefono+"</td>"+
                      "<td>"+value.direccion+"</td>"+
                     "<td>"+value.pais.nompais+"</td>"+
+                    "<td>"+value.activo+"</td>"+
                     "<td>"+
                         "<button type='button' class='btn btn-info btnactualizar'"+
                                      "data-cliente_id='"+value.cliente_id+"'"+
@@ -86,6 +100,7 @@ function listaClientes(){
                                      "data-telefono='"+value.telefono+"'"+
                                      "data-direccion='"+value.direccion+"'"+
                                      "data-pais='"+value.pais.id_pais+"'"+
+                                     "data-data-activo='"+value.activo+"'"+
                                      "><i class='fas fa-edit'></i></button>"+
                     "</td></tr>");
             })
